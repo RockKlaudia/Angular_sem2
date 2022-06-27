@@ -1,0 +1,11 @@
+<table>
+  <thead>
+    <th>Name</th>
+    <th>Score</th>
+  </thead>
+  <tbody>
+    <tr *ngFor="let score of highscores">
+      <td>{{ score.name }} - {{ score.score }}</td>
+    </tr>
+  </tbody>
+</table>

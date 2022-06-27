@@ -1,0 +1,51 @@
+<div class="container">
+  <div class="box">
+    <form [formGroup]="form">
+      <input
+        type="text"
+        formControlName="playerName"
+        name="playerName"
+        placeholder="Player ID"
+      />
+
+      <div
+        *ngIf="
+          form.controls['playerName'].invalid &&
+          form.controls['playerName'].dirty
+        "
+      >
+        Incorrect name
+      </div>
+      <br />
+      <input
+        formControlName="playerToken"
+        name="playerToken"
+        placeholder="token"
+      />
+      <div
+        *ngIf="
+          form.controls['playerToken'].invalid &&
+          form.controls['playerToken'].dirty
+        "
+      >
+        Incorrect Token
+      </div>
+      <p>
+        <button
+          type="submit"
+          (click)="onClick('high')"
+          [disabled]="form.invalid"
+        >
+          Play High Contrast Mode
+        </button>
+        <button
+          type="submit"
+          (click)="onClick('normal')"
+          [disabled]="form.invalid"
+        >
+          Play Normal Mode
+        </button>
+      </p>
+    </form>
+  </div>
+</div>

@@ -1,0 +1,42 @@
+<div *ngIf="changePage">
+  <button (click)="returnMain()">Exit game</button>
+  <p>Hello, {{ playerName }}</p>
+  <p>Points: {{ counter }}</p>
+  <p>Game status: {{ gameStatus }}</p>
+  <p>
+    <span>Timer {{ timerHours }}</span>
+    <span>:</span> <span>{{ timerMinutes }}</span> <span>:</span>
+    <span>{{ timerSeconds }}</span>
+  </p>
+  <p></p>
+  <p>
+    <ngx-snake
+      [class.high-contrast]="color === 'high'"
+      #game
+      (foodEaten)="onGrow()"
+      (gameOver)="onGameOver()"
+    ></ngx-snake>
+  </p>
+  <br />
+  <button (click)="game.actionStart()" (click)="onPlay()" (click)="timerGo()">
+    Start
+  </button>
+  <button (click)="game.actionStop()" (click)="onPause()">Stop</button>
+  <button (click)="game.actionReset()" (click)="onReset()">Reset</button>
+  <br />
+  <br />
+  <button (click)="game.actionUp()">Up</button>
+  <button (click)="game.actionLeft()">Left</button>
+  <button (click)="game.actionRight()">Right</button>
+  <button (click)="game.actionDown()">Down</button>
+</div>
+
+<br />
+<br />
+<br />
+
+<div *ngIf="!changePage">
+  <app-root></app-root>
+</div>
+
+<app-high-score></app-high-score>

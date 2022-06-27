@@ -1,0 +1,12 @@
+/* You can add global styles to this file, and also import other style files */
+
+.high-contrast {
+  ngx-snake-tile {
+    background: #ffffff;
+    &.free {
+      div {
+        background: #ffffff;
+      }
+    }
+  }
+}
